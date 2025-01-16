@@ -14,7 +14,7 @@ env:
 
 jobs:
   cleanup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Delete artifacts
         uses: jimschubert/delete-artifacts-action@v1
@@ -25,7 +25,7 @@ jobs:
 
   tests-linux:
     needs: [ cleanup ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -128,7 +128,7 @@ jobs:
   coverage:
     permissions: write-all
     needs: [ tests-linux ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Restore coverage
